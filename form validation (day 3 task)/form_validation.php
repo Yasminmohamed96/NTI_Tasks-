@@ -12,32 +12,6 @@ function sanitize_string($input)
     return $input;
 }
 
-function validate_sanitize_email($input)
-{
-    if(filter_var($input,FILTER_VALIDATE_EMAIL))
-        {
-            echo $input;
-            return $input;   
-        }
-    else
-        {
-            
-            $input=filter_var($input,FILTER_SANITIZE_EMAIL);
-            echo  $input.'SANITIZE';
-            if (filter_var($input,FILTER_VALIDATE_EMAIL))
-                {
-                    echo $input;
-                    return $input;
-                }
-            else
-                {
-                    $input="error";
-                    return $input;
-                }    
-
-            
-        }    
-}
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
