@@ -91,6 +91,7 @@ function CleanInputs($input){
             $disFolder = './uploads/';
             
             $disPath  = $disFolder.$FinalName;
+            unlink($_POST['old_file']);
     
              if(!move_uploaded_file($tmp_path,$disPath))
                {
@@ -187,6 +188,7 @@ function CleanInputs($input){
 <div class="form-group">
  <label for="exampleInputEmail1">post image</label>
  <img src="<?=$data['post_image_destination']; ?>"style=" width:100px; width:100px; " />
+ <input hidden name ="old_file" value="<?=$data['post_image_destination']; ?>" >
  <input type="file"  name="post_image" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter Name">
 </div>
 <button type="submit" class="btn btn-primary">update</button>
